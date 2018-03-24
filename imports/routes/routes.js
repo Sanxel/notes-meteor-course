@@ -19,7 +19,7 @@ const onEnterPrivatePage = () => {
     browserHistory.replace('/');
   }
 };
-export const onAuthChange = (isAuthenticated) => {
+export const onAuthChange = isAuthenticated => {
   const pathname = browserHistory.getCurrentLocation().pathname;
   const isUnauthenticatedPage = unauthenticatedPages.includes(pathname);
   const isAuthenticatedPage = authenticatedPages.includes(pathname);
@@ -32,9 +32,10 @@ export const onAuthChange = (isAuthenticated) => {
 };
 export const routes = (
   <Router history={browserHistory}>
-    <Route path="/" component={Login} onEnter={onEnterPublicPage}/>
-    <Route path="/signup" component={Signup} onEnter={onEnterPublicPage}/>
-    <Route path="/dashboard" component={Dashboard} onEnter={onEnterPrivatePage}/>
-    <Route path="*" component={NotFound}/>
+    <Route path="/" component={Login} onEnter={onEnterPublicPage} />
+    <Route path="/signup" component={Signup} onEnter={onEnterPublicPage} />
+    <Route path="/dashboard" component={Dashboard} onEnter={onEnterPrivatePage} />
+    <Route path="/dashboard/:id" component={Dashboard} onEnter={onEnterPrivatePage} />
+    <Route path="*" component={NotFound} />
   </Router>
 );
