@@ -9,7 +9,8 @@ import '../imports/startup/simple-schema-configuration.js';
 
 Tracker.autorun(() => {
   const isAuthenticated = !!Meteor.userId();
-  onAuthChange(isAuthenticated);
+  const currentPagePrivacy = Session.get('currentPagePrivacy');
+  onAuthChange(isAuthenticated, currentPagePrivacy);
 });
 
 Tracker.autorun(() => {
@@ -20,8 +21,6 @@ Tracker.autorun(() => {
 });
 
 Meteor.startup(() => {
-  process.env.TEST_BROWSER_DRIVER = 'chrome';
-
   Session.set('selectedNoteId', undefined);
   ReactDOM.render(routes, document.getElementById('app'));
 });
