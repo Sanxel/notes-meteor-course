@@ -18,6 +18,9 @@
     "react-test-renderer": "^16.2.0",
     "simpl-schema": "^1.2.2"
   },
+  "engines": {
+    "node": "4.8.7"
+  },
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-spies": "^0.7.1",
