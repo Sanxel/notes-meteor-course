@@ -7,8 +7,9 @@ import { Session } from 'meteor/session';
 
 export const NoteListHeader = props => {
   return (
-    <div>
+    <div className="item-list__header">
       <button
+        className="button"
         onClick={() =>
           props.meteorCall('notes.insert', (err, res) => {
             if (res) {
