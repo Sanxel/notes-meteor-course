@@ -43,7 +43,7 @@ if (Meteor.isClient) {
 
     it('should call handleLogout on click', function() {
       const spy = sinon.spy();
-      const wrapper = mount(<PrivateHeader title="Title" handleLotout={spy} />);
+      const wrapper = mount(<PrivateHeader title="Title" handleLogout={spy} />);
 
       wrapper.find('button').simulate('click');
 

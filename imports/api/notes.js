@@ -73,5 +73,11 @@ Meteor.methods({
         }
       }
     );
+  },
+  'notes.clearAll'() {
+    if (!this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+    Notes.remove({ userId: this.userId });
   }
 });

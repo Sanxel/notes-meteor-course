@@ -26,11 +26,10 @@ export const onAuthChange = (isAuthenticated, currentPagePrivacy) => {
     browserHistory.replace('/');
   }
 };
-export const globalOnChange = (prevState, nextState) => {
-  console.log('globalOnChange');
+const globalOnChange = (prevState, nextState) => {
   globalOnEnter(nextState);
 };
-export const globalOnEnter = nextState => {
+const globalOnEnter = nextState => {
   const lastRoute = nextState.routes[nextState.routes.length - 1];
   Session.set('currentPagePrivacy', lastRoute.privacy);
 };
